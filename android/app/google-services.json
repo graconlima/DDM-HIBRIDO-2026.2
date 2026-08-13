@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "568949016800",
+    "project_id": "ddm-push",
+    "storage_bucket": "ddm-push.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568949016800:android:2b665123e51ebb2b096885",
+        "android_client_info": {
+          "package_name": "com.example.ddm_20261"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEW0nEcJBQJfz2vjHdJ1FA5AvXYNB79Yc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
