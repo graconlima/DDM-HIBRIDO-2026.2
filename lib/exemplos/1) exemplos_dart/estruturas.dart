@@ -58,16 +58,15 @@ do{
   print(a);
   print(b);
 
-
   ({String nome, int idade}) pessoa = (nome: 'Lucas', idade: 22);
   print(pessoa.nome);
   print(pessoa.idade);*/
 
-
 //Exemplo 5 - Funcoes
 //print(soma(3,4));
-//anonima: (a, b){print(a+b);};
-//lambda: (a, b) => print(a+b);
+//anonima e lambda: (a, b) => print(a+b);
+print (somar(7, 7));
+
 //closure:
 /*var r = mult(7);
 print(r(7));*/
@@ -106,6 +105,12 @@ print(v);*/
 
   return a+b;
 }*/
+
+//anonima
+//var somar = (int a, int b){return a + b;};
+
+//lambda
+var somar = (int a, int b) => a + b;
 
 //closure (a)
 /*Function mult(int a) {
