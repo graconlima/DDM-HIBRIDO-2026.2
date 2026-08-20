@@ -47,11 +47,11 @@ void main(){
 /*class Pessoa{
   String _nome = "";
 
-  Pessoa(String nome){
+  /*Pessoa(String nome){
    _nome = nome;
-  }
+  }*/
 
-  //Pessoa(this._nome);
+  Pessoa(this._nome);
 
   //metodos modificadores
   set nome(String nome){
@@ -65,10 +65,10 @@ void main(){
 }
 
 void main(){
-  Pessoa maria = Pessoa("Joao");
-  maria.nome = "Maria de Jesus";
+  Pessoa p = Pessoa("Joao de D-us");
+  //p.nome = "Maria de Jesus";
 
-  print("O nome da pessoa e: ${maria.nome}");
+  print("O nome da pessoa e: ${p.nome}");
 }*/
 
 //Exemplo 4 - construtores 2
@@ -90,15 +90,15 @@ void main(){
 }
 
 void main(){
-  Pessoa p = Pessoa(nome: "Joao");
-  //Pessoa p = Pessoa(sobrenome: "", nome: "Joao");//nao importa a ordem
+  //Pessoa p = Pessoa(nome: "Joao");
+  Pessoa p = Pessoa(sobrenome: "", nome: "Joao");//nao importa a ordem
   p.sobrenome = "Maria de Jesus";
 
-  print("O nome da pessoa e: ${p.nome} ${p.sobrenome}");
+  print("O nome da pessoa e: ${p.nome}, o sobrenome: ${p.sobrenome}");
 }*/
 
 //Exemplo 5 - Herança
-/*class Aluno{
+class Aluno{
   String nome = "";
   double nota1 = 0.0;
   double nota2 = 0.0;
@@ -113,7 +113,8 @@ void main(){
 }
 
 class Tecnico extends Aluno{
-  Tecnico(super.nome, super.nota1, super.nota2);
+  String? sobrenome;
+  Tecnico(super.nome, super.nota1, super.nota2, sobrenome);//outros parametros podem ser passados que não são da superclasse
   @override
   double media() {
     //return super.media();
@@ -130,9 +131,9 @@ class Superior extends Aluno{
 }
 
 void main(){
-  Aluno a1 = Tecnico("Ana", 4.0, 7.5);
+  Aluno a1 = Tecnico("Ana", 4.0, 7.5, "Lins");
   Aluno a2 = Superior("Beto", 4.0, 7.5);
 
   print("Media do aluno(a) ${a1.nome}: ${a1.media()}");
   print("Media do aluno(a) ${a2.nome}: ${a2.media()}");
-}*/
+}
