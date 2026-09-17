@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 //Exemplo 1 - botoes
 /*void main(){
   runApp(MinhaWidget());
@@ -38,10 +39,14 @@ class IMC extends StatelessWidget{
     return MaterialApp(home: Scaffold(body: Column(
     children: <Widget>[
       TextField(
+        inputFormatters: [FilteringTextInputFormatter.allow(RegExp("[0-9.]+"))],
+        keyboardType: TextInputType.number,
         onChanged: (texto) {a = double.parse(texto);},
         decoration: InputDecoration(icon:Icon(Icons.accessibility), hintText: "Altura")
       ),
       TextField(
+        inputFormatters: [FilteringTextInputFormatter.allow(RegExp("[0-9.]+"))],
+        keyboardType: TextInputType.number,
         onChanged: (texto) {p = double.parse(texto);},
         decoration: InputDecoration(icon:Icon(Icons.scale), hintText: "Peso:")
       ),
@@ -56,7 +61,7 @@ class IMC extends StatelessWidget{
 }*/
 
 //Exemplo 3: IMC 2.0: calculando com botao (com modelo)
-void main(){
+/*void main(){
   runApp(IMC());
 }
 
@@ -67,10 +72,14 @@ class IMC extends StatelessWidget{
     return MaterialApp(home: Scaffold(body: Column(
     children: <Widget>[
       TextField(
+        inputFormatters: [FilteringTextInputFormatter.allow(RegExp("[0-9.]+"))],
+        keyboardType: TextInputType.number,
         onChanged: (texto) {a = double.parse(texto);},
         decoration: InputDecoration(icon:Icon(Icons.accessibility), hintText: "Altura")
       ),
       TextField(
+        inputFormatters: [FilteringTextInputFormatter.allow(RegExp("[0-9.]+"))],
+        keyboardType: TextInputType.number,
         onChanged: (texto) {p = double.parse(texto);},
         decoration: InputDecoration(icon:Icon(Icons.scale), hintText: "Peso:")
       ),
@@ -82,4 +91,4 @@ class IMC extends StatelessWidget{
 
 class Calculadora{
   static double imc(double a, double p){return a+p;}
-}
+}*/

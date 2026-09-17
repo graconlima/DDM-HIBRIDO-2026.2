@@ -257,7 +257,8 @@ class MinhaApp extends StatelessWidget {
 }*/
 
 //Exemplo 10: LayoutBuilder
-/*void main(){
+/*import 'package:flutter/material.dart';
+void main(){
   runApp(MinhaApp());
 }
 
@@ -271,29 +272,64 @@ class MinhaApp extends StatelessWidget{
          LayoutBuilder(
           builder: (context, constraints) {
             if (constraints.maxWidth < 1000) {
-              return Column(
-                children: [
-                  Icon(Icons.phone_android, size: 100),
-                  Text('Layout em coluna', textDirection: TextDirection.ltr),
-                ]
-              );
+              return LayoutWeb();
             } else {
-              return Row(
-                children: [
-                  Icon(Icons.desktop_mac, size: 100),
-                  Text('Layout em linha', textDirection: TextDirection.ltr),
-                ]
-              );
+              return LayoutCelular();
             }
           },
         )
       )
     );
   }
+}
+
+class LayoutWeb extends StatelessWidget{
+  Widget build(BuildContext bc){
+    return Row(
+                children: [
+                  Icon(Icons.desktop_mac, size: 100),
+                  Text('Layout em linha', textDirection: TextDirection.ltr),
+                ]
+              );
+  }
+}
+
+class LayoutDesktop extends StatelessWidget{
+  Widget build(BuildContext bc){
+    return Column(
+                children: [
+                  Icon(Icons.phone_android, size: 100),
+                  Text('Layout em coluna', textDirection: TextDirection.ltr),
+                ]
+              );
+  }
+}
+
+class LayoutTablet extends StatelessWidget{
+  Widget build(BuildContext bc){
+    return Column(
+                children: [
+                  Icon(Icons.phone_android, size: 100),
+                  Text('Layout em coluna', textDirection: TextDirection.ltr),
+                ]
+              );
+  }
+}
+
+class LayoutCelular extends StatelessWidget{
+  Widget build(BuildContext bc){
+    return Column(
+                children: [
+                  Icon(Icons.phone_android, size: 100),
+                  Text('Layout em coluna', textDirection: TextDirection.ltr),
+                ]
+              );
+  }
 }*/
 
+
 //Exemplo 11: OrientationBuilder
-/*void main(){
+void main(){
   runApp(MinhaApp());
 }
 
@@ -318,7 +354,7 @@ class MinhaApp extends StatelessWidget{
       )
     );
   }
-}*/
+}
 
 //Exemplo 12: GridView
 /*void main(){
