@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 //Exemplo: transicao do Material Design
-void main(){
+/*void main(){
   runApp(MaterialApp(home: TelaInicial()));
 }
+
 class TelaInicial extends StatelessWidget{
   Widget build(BuildContext bc){
     return Scaffold(
@@ -25,10 +26,10 @@ class SegundaTela extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(body: Center(child: FloatingActionButton(child: Text("Voltar"), onPressed: (){Navigator.pop(context);})));
   }
-}
+}*/
 
 //Exemplo 2: animacao de transicao
-/*import 'package:page_transition/page_transition.dart';
+import 'package:page_transition/page_transition.dart';
 void main(){
   runApp(MaterialApp(home: TelaInicial()));
 }
@@ -43,7 +44,7 @@ class TelaInicial extends StatelessWidget{
                 PageTransition(
                     child: PrimeiraTela(),
                     type: PageTransitionType.fade,
-                    duration: Duration(milliseconds: 600),
+                    duration: Duration(milliseconds: 1000),
                     reverseDuration: Duration(milliseconds: 300)
                 )
               );}, child: Text("Tela 1")),
@@ -68,4 +69,4 @@ class SegundaTela extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(body: Center(child: FloatingActionButton(child: Text("Voltar"), onPressed: (){Navigator.pop(context);})));
   }
-}*/
+}

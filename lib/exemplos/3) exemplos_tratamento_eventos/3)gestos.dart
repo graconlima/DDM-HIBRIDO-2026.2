@@ -387,7 +387,7 @@ class MinhaApp extends StatelessWidget{
   }
 }*/
 
-/*import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
@@ -465,10 +465,10 @@ class AulaZoomPuroGestureDetector extends StatelessWidget {
       ),
     );
   }
-}*/
+}
 
 
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
@@ -522,5 +522,5 @@ class AulaZoomStateless extends StatelessWidget {
       ),
     );
   }
-}
+}*/
 
