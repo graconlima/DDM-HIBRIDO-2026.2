@@ -14,8 +14,8 @@ class MinhaWidget extends StatelessWidget{
             drawer: Drawer(
                 child: ListView(
                     children: [
-                      DrawerHeader(child: Text("Menu Lateral")),
-                      ListTile(leading: Icon(Icons.ac_unit), title: Text("Menu1"), onTap: (){print("Menu1");} ),
+                      DrawerHeader(child: Text("Menu Lateral"), ),
+                      ListTile(tileColor: Color.fromARGB(255, 100, 100, 0), leading: Icon(Icons.ac_unit), title: Text("Menu1"), onTap: (){print("Menu1");} ),
                       ListTile(title: Text("Menu2"), onTap: (){print("Menu2");} ),
                       ListTile(title: Text("Menu3"), onTap: (){print("Menu3");} )
                     ]

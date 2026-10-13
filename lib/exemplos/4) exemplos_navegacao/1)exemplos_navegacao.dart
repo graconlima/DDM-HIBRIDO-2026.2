@@ -43,16 +43,17 @@ class TelaInicial extends StatelessWidget{
               onPressed: (){Navigator.of(bc).push(
                 PageTransition(
                     child: PrimeiraTela(),
-                    type: PageTransitionType.fade,
-                    duration: Duration(milliseconds: 1000),
-                    reverseDuration: Duration(milliseconds: 300)
+                    type: PageTransitionType.bottomToTop,
+                    duration: Duration(milliseconds: 2000),
+                    reverseDuration: Duration(milliseconds: 100)
                 )
               );}, child: Text("Tela 1")),
           FloatingActionButton(
               heroTag: "bt2",
               onPressed: (){Navigator.of(bc).push(
                   MaterialPageRoute(
-                      builder: (bc) => SegundaTela())
+                      builder: (bc) => SegundaTela(),
+                  ),
               );}, child: Text("Tela 2"))
         ])
     );

@@ -1,20 +1,118 @@
 import 'package:flutter/material.dart';
-//Exemplo 1: as classes StatefulWidget e State
+import 'package:flutter/services.dart';
+//Utilizando ValueNotifier
+//Exemplo 1: Buscando Imagem com StatelessWidget (nao atualiza a interface)
+/*void main(){
+  runApp(MinhaWidget());
+}
+
+class MinhaWidget extends StatelessWidget{
+
+  int contador = 1;
+  String atualizarURLImagem([int contador = 0]){
+    contador++;
+    print('https://picsum.photos/250?image=$contador');
+    return "https://picsum.photos/250?image=$contador";
+  }
+
+  Widget build(BuildContext bc){
+
+    String imagemURL = atualizarURLImagem();
+
+    return MaterialApp(
+        title: "Ola Mundo!",
+        home: Scaffold(
+          appBar: AppBar(title: Text("Ola")),
+          body: Center(child: Image.network(imagemURL)),
+          floatingActionButton: FloatingActionButton(
+              onPressed: (){
+                atualizarURLImagem(contador++);
+              },
+              child: Icon(
+                Icons.star,
+                color: Colors.amber,
+                size: 40,
+              )
+          ),
+        )
+    );
+  }
+}*/
+
+//Exemplo 1.1: Buscando Imagem com StatelessWidget (atualizacao da interface com ValueNotifier)
+void main(){
+  runApp(MinhaWidget());
+}
+
+class MinhaWidget extends StatelessWidget{
+
+  ValueNotifier<int> contador = ValueNotifier<int>(0);
+  String atualizarURLImagem([int contador = 0]){
+    contador++;
+    print('https://picsum.photos/250?image=$contador');
+    return "https://picsum.photos/250?image=$contador";
+  }
+
+  Widget build(BuildContext bc){
+
+    String imagemURL = atualizarURLImagem();
+
+    return MaterialApp(
+        title: "Ola Mundo!",
+        home: ValueListenableBuilder<int>(
+          valueListenable: contador,
+          builder: (c, v, ch){return Scaffold(
+            appBar: AppBar(title: Text("Ola")),
+            body: Center(child: Image.network(atualizarURLImagem(v))),
+            floatingActionButton: FloatingActionButton(
+                onPressed: (){
+                  contador.value++;
+                  atualizarURLImagem(contador.value);
+                },
+                child: Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                  size: 40,
+                )
+            ),
+          );},
+        )
+    );
+  }
+}
+
+//Exemplo 2: as classes StatefulWidget e State
 /*void main() => runApp(MinhaAplicacao());
 
 class MinhaAplicacao extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: MinhaHomePage());
+    return MaterialApp(home: HomePageComEstado());
+  }
+}
+
+//StatelessWidget
+class HomePageSemEstado extends StatelessWidget{
+  int contador = 0;
+  void incrementoContador(){
+      contador++;
+      print("Valor contador: $contador");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(body: Center(child:Text("$contador")),
+      floatingActionButton: FloatingActionButton(onPressed: incrementoContador),
+    );
   }
 }
 
 //StatefulWidget
-class MinhaHomePage extends StatefulWidget{
+class HomePageComEstado extends StatefulWidget{
   MinhaHomePageEstado createState() => MinhaHomePageEstado();
 }
 
-class MinhaHomePageEstado extends State<MinhaHomePage>{
+class MinhaHomePageEstado extends State<HomePageComEstado>{
   int contador = 0;
   void incrementoContador(){
     setState(() {
@@ -145,10 +243,14 @@ class AtualizadorTextoEstado extends State{
       children: <Widget>[
         TextField(
           onChanged: (texto){a = double.parse(texto); calculoIMC();},
+          keyboardType: TextInputType.number,
+          inputFormatters: [FilteringTextInputFormatter.allow(RegExp("[0-9.]+"))],
           decoration: InputDecoration(icon: Icon(Icons.accessibility), hintText: "Altura"),
         ),
         TextField(
           onChanged: (texto){p = double.parse(texto); calculoIMC();},
+          keyboardType: TextInputType.number,
+          inputFormatters: [FilteringTextInputFormatter.allow(RegExp("[0-9.]+"))],
           decoration: InputDecoration(icon: Icon(Icons.alternate_email_sharp), hintText: "Peso"),
         ),
         Text("$textoIMC")
@@ -162,87 +264,7 @@ class AtualizadorTextoEstado extends State{
   }
 }*/
 
-//Exemplo 4: Buscando Imagem com StatelessWidget (nao atualiza a interface)
-/*void main(){
-  runApp(MinhaWidget());
-}
-
-class MinhaWidget extends StatelessWidget{
-
-  int contador = 1;
-  String atualizarURLImagem([int contador = 0]){
-    contador++;
-    print('https://picsum.photos/250?image=$contador');
-    return "https://picsum.photos/250?image=$contador";
-  }
-
-  Widget build(BuildContext bc){
-
-    String imagemURL = atualizarURLImagem();
-
-    return MaterialApp(
-        title: "Ola Mundo!",
-        home: Scaffold(
-          appBar: AppBar(title: Text("Ola")),
-          body: Center(child: Image.network(imagemURL)),
-          floatingActionButton: FloatingActionButton(
-              onPressed: (){
-                atualizarURLImagem(contador++);
-              },
-              child: Icon(
-                Icons.star,
-                color: Colors.amber,
-                size: 40,
-              )
-          ),
-        )
-    );
-  }
-}*/
-
-//Exemplo 4.1: Buscando Imagem com StatelessWidget (atualizacao da interface com ValueNotifier)
-/*void main(){
-  runApp(MinhaWidget());
-}
-
-class MinhaWidget extends StatelessWidget{
-
-  ValueNotifier<int> contador = ValueNotifier<int>(0);
-  String atualizarURLImagem([int contador = 0]){
-    contador++;
-    print('https://picsum.photos/250?image=$contador');
-    return "https://picsum.photos/250?image=$contador";
-  }
-
-  Widget build(BuildContext bc){
-
-    String imagemURL = atualizarURLImagem();
-
-    return MaterialApp(
-        title: "Ola Mundo!",
-        home: ValueListenableBuilder<int>(
-          valueListenable: contador,
-          builder: (c, v, ch){return Scaffold(
-            appBar: AppBar(title: Text("Ola")),
-            body: Center(child: Image.network(atualizarURLImagem(v))),
-            floatingActionButton: FloatingActionButton(
-                onPressed: (){
-                  contador.value++;
-                  atualizarURLImagem(contador.value);
-                },
-                child: Icon(
-                  Icons.star,
-                  color: Colors.amber,
-                  size: 40,
-                )
-            ),
-          );},
-        )
-    );
-  }
-}*/
-
-//Exemplo 5: Buscando Imagem com StetefulWidget e NavBar
+//Exemplo 4: Buscando Imagem com StetefulWidget e NavBar
 /*void main(){
 
   runApp(MA());
@@ -292,7 +314,7 @@ class MinhaWidget extends State{
   }
 }*/
 
-//Exemplo 6: Estado efemero da aplicação com Controle Deslizante
+//Exemplo 5: Estado efemero da aplicação com Controle Deslizante
 /*void main() {
   runApp(MinhaApp());
 }
@@ -341,8 +363,8 @@ class _ControleDeslizante extends State {
   }
 }*/
 
-//Exemplo 7 - Estado global da aplicação com Controle Deslizante
-import 'package:provider/provider.dart';
+//Exemplo 5.1 - Estado global da aplicação com Controle Deslizante
+/*import 'package:provider/provider.dart';
 void main() {
   runApp(
       ChangeNotifierProvider(
@@ -433,4 +455,4 @@ class _ControleDeslizante extends State {
         )
     );
   }
-}
+}*/
