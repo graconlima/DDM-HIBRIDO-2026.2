@@ -40,7 +40,7 @@ class MinhaWidget extends StatelessWidget{
 }*/
 
 //Exemplo 1.1: Buscando Imagem com StatelessWidget (atualizacao da interface com ValueNotifier)
-void main(){
+/*void main(){
   runApp(MinhaWidget());
 }
 
@@ -79,9 +79,9 @@ class MinhaWidget extends StatelessWidget{
         )
     );
   }
-}
+}*/
 
-//Exemplo 2: as classes StatefulWidget e State
+//Exemplo 2: ciclo de vida das classes StatefulWidget e State
 /*void main() => runApp(MinhaAplicacao());
 
 class MinhaAplicacao extends StatelessWidget{
@@ -105,10 +105,10 @@ class HomePageSemEstado extends StatelessWidget{
       floatingActionButton: FloatingActionButton(onPressed: incrementoContador),
     );
   }
-}
+}*/
 
 //StatefulWidget
-class HomePageComEstado extends StatefulWidget{
+/*class HomePageComEstado extends StatefulWidget{
   MinhaHomePageEstado createState() => MinhaHomePageEstado();
 }
 
@@ -121,10 +121,30 @@ class MinhaHomePageEstado extends State<HomePageComEstado>{
   }
 
   @override
+  void initState() {
+    //chamado apenas uma vez,
+    super.initState();
+    print("initState");
+  }
+
+  @override
+  void didChangeDependencies() {
+    //quando há dependências externas que influenciam o estado,
+    super.didChangeDependencies();
+    print("didChangeDependencies");
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(body: Center(child:Text("$contador")),
       floatingActionButton: FloatingActionButton(onPressed: incrementoContador),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    print("Dispose");
   }
 }*/
 
@@ -364,7 +384,7 @@ class _ControleDeslizante extends State {
 }*/
 
 //Exemplo 5.1 - Estado global da aplicação com Controle Deslizante
-/*import 'package:provider/provider.dart';
+import 'package:provider/provider.dart';
 void main() {
   runApp(
       ChangeNotifierProvider(
@@ -455,4 +475,4 @@ class _ControleDeslizante extends State {
         )
     );
   }
-}*/
+}
