@@ -40,7 +40,7 @@ dependencies:
   encrypt:
   page_transition:
   bloc:
-  flutter_bloc: ^9.1.1
+  flutter_bloc: 7.2.0
   firebase_core:
   firebase_messaging:
   # The following adds the Cupertino Icons font to your application.
